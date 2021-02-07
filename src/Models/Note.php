@@ -3,9 +3,9 @@
 namespace Tipoff\Notes\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Tipoff\Support\Models\BaseModel;
 
-class Note extends Model
+class Note extends BaseModel
 {
     use HasFactory;
 
