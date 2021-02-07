@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Factories;
+namespace Tipoff\Notes\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Tipoff\Notes\Models\Note;
