@@ -6,7 +6,6 @@ namespace Tipoff\Notes;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Tipoff\Notes\Commands\NotesCommand;
 
 class NotesServiceProvider extends PackageServiceProvider
 {
