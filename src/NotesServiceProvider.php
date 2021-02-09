@@ -4,10 +4,16 @@ namespace Tipoff\Notes;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Tipoff\Notes\Commands\NotesCommand;
 
 class NotesServiceProvider extends PackageServiceProvider
 {
+    public function boot()
+    {
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+
+        parent::boot();
+    }
+
     public function configurePackage(Package $package): void
     {
         /*
@@ -18,8 +24,6 @@ class NotesServiceProvider extends PackageServiceProvider
         $package
             ->name('notes')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_notes_table')
-            ->hasCommand(NotesCommand::class);
+            ->hasViews();
     }
 }
