@@ -9,15 +9,12 @@ class CreateNotesTable extends Migration
     public function up()
     {
         Schema::create('notes', function (Blueprint $table) {
-            $userModel = config('tipoff.model_class.user');
-            $userTable = (new $userModel)->getTable();
-
             $table->id();
             $table->unsignedBigInteger('noteable_id')->index();
             $table->string('noteable_type')->index();
             $table->text('content')->nullable(); // Will be written in Markdown.
-            $table->foreignId('creator_id')->references('id')->on($userTable);
-            $table->foreignId('updater_id')->references('id')->on($userTable);
+            $table->foreignIdFor(app('user'), 'creator_id');
+            $table->foreignIdFor(app('user'), 'updater_id');
             $table->softDeletes();
             $table->timestamps();
         });
