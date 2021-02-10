@@ -10,9 +10,10 @@ class CreateNoteablesTable extends Migration
     {
         Schema::create('noteables', function (Blueprint $table) {
             $table->foreignIdFor(app('note'))->index();
-            $table->unsignedBigInteger('noteable_id')->index();
-            $table->string('noteable_type')->index();
+            $table->morphs('noteable');
             $table->timestamps();
+            
+            $table->unique(['note_id', 'noteable_id', 'noteable_type']);
         });
     }
 }
