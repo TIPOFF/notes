@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tipoff\Notes;
 
 use Spatie\LaravelPackageTools\Package;
@@ -23,7 +25,6 @@ class NotesServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('notes')
-            ->hasConfigFile()
-            ->hasViews();
+            ->hasConfigFile();
     }
 }
