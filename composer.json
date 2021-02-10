@@ -21,12 +21,6 @@
     "require-dev": {
         "tipoff/test-support": "^1.0"
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://nova.laravel.com"
-        }
-    ],
     "autoload": {
         "psr-4": {
             "Tipoff\\Notes\\": "src",
