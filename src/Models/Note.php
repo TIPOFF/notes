@@ -3,11 +3,13 @@
 namespace Tipoff\Notes\Models;
 
 use Tipoff\Support\Models\BaseModel;
+use Tipoff\Support\Traits\HasCreator;
 use Tipoff\Support\Traits\HasPackageFactory;
 
 class Note extends BaseModel
 {
     use HasPackageFactory;
+    use HasCreator;
 
     protected $guarded = ['id'];
     protected $casts = [];
@@ -15,10 +17,5 @@ class Note extends BaseModel
     public function noteable()
     {
         return $this->morphTo();
-    }
-
-    public function creator()
-    {
-        return $this->belongsTo(app('user'), 'creator_id');
     }
 }
