@@ -9,6 +9,7 @@ use Tipoff\Support\Traits\HasCreator;
 class Note extends BaseModel
 {
     use HasPackageFactory;
+    use HasCreator;
 
     protected $guarded = ['id'];
     protected $casts = [];
