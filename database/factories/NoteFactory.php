@@ -22,11 +22,11 @@ class NoteFactory extends Factory
     public function definition()
     {
         $noteables = [
-            config('tipoff.model_class.customer'),
-            config('tipoff.model_class.order'),
-            config('tipoff.model_class.game'),
-            config('tipoff.model_class.block'),
-            config('tipoff.model_class.slot'),
+            app('customer'),
+            app('order'),
+            app('game'),
+            app('block'),
+            app('slot'),
         ];
         $noteableType = $this->faker->randomElement($noteables);
 
@@ -34,8 +34,8 @@ class NoteFactory extends Factory
             'noteable_type' => $noteableType,
             'noteable_id' => randomOrCreate($noteableType),
             'content' => $this->faker->sentences(3, true),
-            'creator_id' => randomOrCreate(config('tipoff.model_class.user')),
-            'updater_id' => randomOrCreate(config('tipoff.model_class.user')),
+            'creator_id' => randomOrCreate(app('user')),
+            'updater_id' => randomOrCreate(app('user')),
         ];
     }
 }
