@@ -3,8 +3,8 @@
 namespace Tipoff\Notes\Models;
 
 use Tipoff\Support\Models\BaseModel;
-use Tipoff\Support\Traits\HasPackageFactory;
 use Tipoff\Support\Traits\HasCreator;
+use Tipoff\Support\Traits\HasPackageFactory;
 
 class Note extends BaseModel
 {
