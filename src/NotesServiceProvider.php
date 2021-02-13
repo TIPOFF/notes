@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace Tipoff\Notes;
 
+use Illuminate\Support\Facades\Gate;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Tipoff\Notes\Models\Note;
+use Tipoff\Notes\Policies\NotePolicy;
 
 class NotesServiceProvider extends PackageServiceProvider
 {
@@ -18,13 +21,13 @@ class NotesServiceProvider extends PackageServiceProvider
 
     public function configurePackage(Package $package): void
     {
-        /*
-         * This class is a Package Service Provider
-         *
-         * More info: https://github.com/spatie/laravel-package-tools
-         */
-        $package
-            ->name('notes')
-            ->hasConfigFile();
+        $package->name('notes')
+            ->hasConfigFile()
+            ->hasTranslations();
+    }
+
+    public function registeringPackage()
+    {
+        Gate::policy(Note::class, NotePolicy::class);
     }
 }

@@ -16,7 +16,7 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
-         "tipoff/authorization": "^1.0.1",
+        "tipoff/authorization": "^1.0.1",
         "tipoff/support": "^1.2.7"
     },
     "require-dev": {
@@ -25,7 +25,8 @@
     "autoload": {
         "psr-4": {
             "Tipoff\\Notes\\": "src",
-            "Tipoff\\Notes\\Database\\Factories\\": "database/factories"
+            "Tipoff\\Notes\\Database\\Factories\\": "database/factories",
+            "Tipoff\\Notes\\Database\\Seeders\\": "database/seeders"
         }
     },
     "autoload-dev": {
