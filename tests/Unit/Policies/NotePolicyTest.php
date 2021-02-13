@@ -42,13 +42,13 @@ class NotePolicyTest extends TestCase
     public function data_provider_for_all_permissions_as_creator()
     {
         return [
-            'view-true'    => ['view', self::createPermissionedUser('view notes', true), true],
-            'view-false'   => ['view', self::createPermissionedUser('view notes', false), false],
-            'create-true'  => ['create', self::createPermissionedUser('create notes', true), true],
+            'view-true' => ['view', self::createPermissionedUser('view notes', true), true],
+            'view-false' => ['view', self::createPermissionedUser('view notes', false), false],
+            'create-true' => ['create', self::createPermissionedUser('create notes', true), true],
             'create-false' => ['create', self::createPermissionedUser('create notes', false), false],
-            'update-true'  => ['update', self::createPermissionedUser('update notes', true), true],
+            'update-true' => ['update', self::createPermissionedUser('update notes', true), true],
             'update-false' => ['update', self::createPermissionedUser('update notes', false), false],
-            'delete-true'  => ['delete', self::createPermissionedUser('delete notes', true), false],
+            'delete-true' => ['delete', self::createPermissionedUser('delete notes', true), false],
             'delete-false' => ['delete', self::createPermissionedUser('delete notes', false), false],
         ];
     }
