@@ -25,8 +25,7 @@
     "autoload": {
         "psr-4": {
             "Tipoff\\Notes\\": "src",
-            "Tipoff\\Notes\\Database\\Factories\\": "database/factories",
-            "Tipoff\\Notes\\Database\\Seeders\\": "database/seeders"
+            "Tipoff\\Notes\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
