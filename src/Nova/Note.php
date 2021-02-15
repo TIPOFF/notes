@@ -42,14 +42,14 @@ class Note extends Resource
             Markdown::make('Content')->required(),
 
             MorphTo::make('Noteable')->types([
-                User::class,
-                Contact::class,
-                Customer::class,
-                Order::class,
-                Booking::class,
-                Game::class,
-                Block::class,
-                Slot::class,
+                nova('user'),
+                nova('contact'),
+                nova('customer'),
+                nova('order'),
+                nova('booking'),
+                nova('game'),
+                nova('block'),
+                nova('slot'),
             ]),
 
             new Panel('Data Fields', $this->dataFields()),
