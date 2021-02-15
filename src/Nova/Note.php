@@ -41,7 +41,6 @@ class Note extends Resource
         return [
             Markdown::make('Content')->required(),
 
-            /** @psalm-suppress UndefinedClass */
             MorphTo::make('Noteable')->types([
                 nova('user'),
                 nova('contact'),
