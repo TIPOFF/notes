@@ -61,7 +61,7 @@ class Note extends Resource
     {
         return [
             ID::make(),
-            BelongsTo::make('Created By', 'creator', app()->getAlias('nova.user')))->exceptOnForms(),
+            BelongsTo::make('Created By', 'creator', nova('user'))->exceptOnForms(),
             DateTime::make('Created At')->exceptOnForms(),
             DateTime::make('Updated At')->exceptOnForms(),
         ];
