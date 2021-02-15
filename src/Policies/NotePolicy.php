@@ -1,4 +1,8 @@
-<?php namespace Tipoff\Notes\Policies;
+<?php
+
+declare(strict_types=1);
+
+namespace Tipoff\Notes\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Tipoff\Notes\Models\Note;

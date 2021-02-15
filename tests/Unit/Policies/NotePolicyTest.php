@@ -1,4 +1,8 @@
-<?php namespace Tipoff\Notes\Tests\Unit\Policies;
+<?php
+
+declare(strict_types=1);
+
+namespace Tipoff\Notes\Tests\Unit\Policies;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tipoff\Notes\Models\Note;
