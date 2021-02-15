@@ -13,9 +13,9 @@ use Laravel\Nova\Fields\MorphTo;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Panel;
-use Tipoff\Support\Nova\Resource;
+use Tipoff\Support\Nova\BaseResource;
 
-class Note extends Resource
+class Note extends BaseResource
 {
     public static $model = \Tipoff\Notes\Models\Note::class;
 
