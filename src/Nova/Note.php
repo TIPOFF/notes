@@ -27,18 +27,23 @@ class Note extends BaseResource
 
     public static $group = 'Media';
 
+    /** @psalm-suppress UndefinedClass */
+    protected array $filterClassList = [
+
+    ];
+
     public function fieldsForIndex(NovaRequest $request)
     {
-        return [
+        return array_filter([
             ID::make()->sortable(),
             Text::make('Content'),
             MorphTo::make('Noteable')->sortable(),
-        ];
+        ]);
     }
 
     public function fields(Request $request)
     {
-        return [
+        return array_filter([
             Markdown::make('Content')->required(),
 
             MorphTo::make('Noteable')->types([
@@ -54,36 +59,17 @@ class Note extends BaseResource
 
             new Panel('Data Fields', $this->dataFields()),
 
-        ];
+        ]);
     }
 
-    protected function dataFields()
+    protected function dataFields(): array
     {
-        return [
-            ID::make(),
-            BelongsTo::make('Created By', 'creator', nova('user'))->exceptOnForms(),
-            DateTime::make('Created At')->exceptOnForms(),
-            DateTime::make('Updated At')->exceptOnForms(),
-        ];
-    }
-
-    public function cards(Request $request)
-    {
-        return [];
-    }
-
-    public function filters(Request $request)
-    {
-        return [];
-    }
-
-    public function lenses(Request $request)
-    {
-        return [];
-    }
-
-    public function actions(Request $request)
-    {
-        return [];
+        return array_merge(
+            parent::dataFields(),
+            $this->creatorDataFields(),
+            [
+                DateTime::make('Updated At')->exceptOnForms(),
+            ],
+        );
     }
 }
