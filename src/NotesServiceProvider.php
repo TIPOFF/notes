@@ -17,6 +17,9 @@ class NotesServiceProvider extends TipoffServiceProvider
             ->hasPolicies([
                 Note::class => NotePolicy::class,
             ])
+            ->hasNovaResources([
+                \Tipoff\Notes\Nova\Note::class,
+            ])
             ->name('notes')
             ->hasConfigFile();
     }
