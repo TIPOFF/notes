@@ -8,11 +8,6 @@ use Spatie\Permission\PermissionRegistrar;
 
 class AddNotePermissions extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         if (app()->has(Permission::class)) {
@@ -26,15 +21,5 @@ class AddNotePermissions extends Migration
                     app(Permission::class)::findOrCreate($name, null);
             };
         }
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        //
     }
 }
