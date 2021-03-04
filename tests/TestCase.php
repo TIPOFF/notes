@@ -8,9 +8,9 @@ use Laravel\Nova\NovaCoreServiceProvider;
 use Spatie\Permission\PermissionServiceProvider;
 use Tipoff\Authorization\AuthorizationServiceProvider;
 use Tipoff\Notes\NotesServiceProvider;
+use Tipoff\Notes\Tests\Support\Providers\NovaPackageServiceProvider;
 use Tipoff\Support\SupportServiceProvider;
 use Tipoff\TestSupport\BaseTestCase;
-use Tipoff\Notes\Tests\Support\Providers\NovaPackageServiceProvider;
 
 class TestCase extends BaseTestCase
 {
