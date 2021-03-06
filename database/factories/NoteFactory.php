@@ -33,7 +33,7 @@ class NoteFactory extends Factory
         $noteableType = $this->faker->randomElement($noteables);
 
         return [
-            'noteable_type' => class_basename($noteableType),
+            'noteable_type' => get_class($noteableType),
             'noteable_id' => randomOrCreate($noteableType),
             'content' => $this->faker->sentences(3, true),
             'creator_id' => randomOrCreate(app('user')),
