@@ -45,7 +45,7 @@ class Note extends BaseResource
         return array_filter([
             Markdown::make('Content')->required(),
 
-            MorphTo::make('Noteable')->types([
+            MorphTo::make('Noteable')->types(array_filter([
                 nova('user'),
                 nova('contact'),
                 nova('customer'),
@@ -54,7 +54,7 @@ class Note extends BaseResource
                 nova('game'),
                 nova('block'),
                 nova('slot'),
-            ]),
+            ])),
 
             new Panel('Data Fields', $this->dataFields()),
 
