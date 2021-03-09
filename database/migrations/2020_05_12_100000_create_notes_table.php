@@ -12,8 +12,7 @@ class CreateNotesTable extends Migration
     {
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('noteable_id')->index();
-            $table->string('noteable_type')->index();
+            $table->morphs('noteable');
             $table->text('content')->nullable(); // Will be written in Markdown.
             $table->foreignIdFor(app('user'), 'creator_id');
             $table->foreignIdFor(app('user'), 'updater_id');

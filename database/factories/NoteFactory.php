@@ -24,7 +24,7 @@ class NoteFactory extends Factory
     public function definition()
     {
         $noteables = [
-            app('customer'),
+            app('user'),
             app('order'),
             app('game'),
             app('block'),
