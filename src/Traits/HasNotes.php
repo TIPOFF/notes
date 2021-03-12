@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Tipoff\Notes\Traits;
 
-
 use Illuminate\Support\Collection;
 use Tipoff\Notes\Models\Note;
 
