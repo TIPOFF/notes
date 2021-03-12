@@ -27,6 +27,7 @@ trait HasNotes
             ->filter(function (Note $sourceNote) use ($filter) {
                 return empty($filter) || ($filter)($sourceNote);
             })
+            ->sortBy(['created_at', 'id'])  // Ensure notes are copied oldest first to retain same sort on target
             ->each(function (Note $sourceNote) use ($target) {
                 // Create a copy, replacing the addressable with the target before saving
                 $targetNote = $sourceNote->replicate();

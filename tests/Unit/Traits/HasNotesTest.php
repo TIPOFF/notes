@@ -78,6 +78,60 @@ class HasNotesTest extends TestCase
 
         $this->assertDatabaseCount('notes', 4);
     }
+
+    /** @test */
+    public function copy_notes_to_target()
+    {
+        TestModel::createTable();
+
+        /** @var TestModel $source */
+        $source = TestModel::factory()->create();
+
+        $this->actingAs(User::factory()->create());
+
+        $source->addNote('A')
+            ->addNote('B')
+            ->addNote('C')
+            ->addNote('D');
+
+        /** @var TestModel $target */
+        $target = TestModel::factory()->create();
+
+        $source->copyNotesToTarget($target);
+
+        $this->assertEquals(['D', 'C', 'B', 'A'], $source->notes->pluck('content')->toArray());
+        $this->assertEquals(['D', 'C', 'B', 'A'], $target->notes->pluck('content')->toArray());
+
+        $this->assertDatabaseCount('notes', 8);
+    }
+
+    /** @test */
+    public function copy_notes_to_target_with_filter()
+    {
+        TestModel::createTable();
+
+        /** @var TestModel $source */
+        $source = TestModel::factory()->create();
+
+        $this->actingAs(User::factory()->create());
+
+        $source->addNote('A')
+            ->addNote('B')
+            ->addNote('C')
+            ->addNote('D');
+
+        /** @var TestModel $target */
+        $target = TestModel::factory()->create();
+
+        $source->copyNotesToTarget($target, function (Note $note) {
+            return $note->content !== 'B';
+        });
+
+        $this->assertEquals(['D', 'C', 'B', 'A'], $source->notes->pluck('content')->toArray());
+        $this->assertEquals(['D', 'C', 'A'], $target->notes->pluck('content')->toArray());
+
+        $this->assertDatabaseCount('notes', 7);
+    }
 }
 
 class TestModel extends BaseModel
