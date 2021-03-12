@@ -22,3 +22,7 @@ All notable changes to `notes` will be documented in this file.
 - grant permissions to roles
 - add nova resource
 - register nova resource
+
+## 2.0.1 - 2021-03-12
+
+- add hasnotes trait
