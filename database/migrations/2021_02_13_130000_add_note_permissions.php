@@ -9,9 +9,9 @@ class AddNotePermissions extends BasePermissionsMigration
     public function up()
     {
         $permissions = [
-            'view notes' => ['Owner', 'Staff'],
-            'create notes' => ['Owner'],
-            'update notes' => ['Owner']
+            'view notes' => ['Owner', 'Executive', 'Staff'],
+            'create notes' => ['Owner', 'Executive'],
+            'update notes' => ['Owner', 'Executive']
         ];
 
         $this->createPermissions($permissions);
