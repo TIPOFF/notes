@@ -18,7 +18,7 @@ class NoteResourceTest extends TestCase
     {
         Note::factory()->count(4)->create();
 
-        $this->actingAs(self::createPermissionedUser('view notes', true));
+        $this->actingAs(User::factory()->create()->assignRole('Admin'));
 
         $response = $this->getJson('nova-api/notes')
             ->assertOk();
@@ -35,7 +35,7 @@ class NoteResourceTest extends TestCase
             'noteable_id' => $user->id,
         ]);
 
-        $this->actingAs(self::createPermissionedUser('view notes', true));
+        $this->actingAs(User::factory()->create()->assignRole('Admin'));
 
         $response = $this->getJson("nova-api/notes/{$note->id}")
             ->assertOk();

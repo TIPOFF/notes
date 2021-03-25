@@ -26,9 +26,6 @@ class NoteFactory extends Factory
         $noteables = [
             app('user'),
             app('order'),
-            app('game'),
-            app('block'),
-            app('slot'),
         ];
         $noteableType = $this->faker->randomElement($noteables);
 
