@@ -26,3 +26,8 @@ All notable changes to `notes` will be documented in this file.
 ## 2.0.1 - 2021-03-12
 
 - add hasnotes trait
+
+## 2.1.0 - 2021-04-13
+
+- update note factory
+- add executive role permissions
