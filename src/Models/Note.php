@@ -37,6 +37,17 @@ class Note extends BaseModel
 
     protected $casts = [];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saving(function (Note $note) {
+            if (empty($note->content)) {
+                throw new \Exception('A note must have content.');
+            }
+        });
+    }
+
     public function noteable()
     {
         return $this->morphTo();
