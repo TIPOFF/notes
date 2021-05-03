@@ -21,7 +21,7 @@ class Note extends BaseResource
     public static $title = 'content';
 
     public static $search = [
-        'id',
+        'id', 'content'
     ];
 
     public static $group = 'Media';
