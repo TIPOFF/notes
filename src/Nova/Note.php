@@ -43,7 +43,7 @@ class Note extends BaseResource
     public function fields(Request $request)
     {
         return array_filter([
-            Markdown::make('Content')->required(),
+            Markdown::make('Content')->rules('required'),
 
             MorphTo::make('Noteable')->types(array_filter([
                 nova('user'),
